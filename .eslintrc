@@ -1,5 +1,5 @@
 {
-  "extends": "eslint:recommended",
+  "extends": ["eslint:recommended", "prettier"],
   "env": {
     "browser": true
   },
@@ -11,9 +11,6 @@
     }
   },
   "rules": {
-    "strict": [
-      "error",
-      "never"
-    ]
+    "strict": ["error", "never"]
   }
 }
