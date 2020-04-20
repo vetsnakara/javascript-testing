@@ -6,11 +6,12 @@
   "scripts": {
     "test": "jest",
     "lint": "eslint . --ignore-path .gitignore",
-    "build": "rm -rf ./dist && babel src --out-dir dist",
-    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json)\"",
+    "build": "rm -rf ./dist && babel src --extensions .js,.ts,.tsx --out-dir dist",
+    "check-types": "tsc",
+    "prettier": "prettier --ignore-path .gitignore --write \"**/*.+(js|json|ts|tsx)\"",
     "format": "npm run prettier -- --write",
     "check-format": "npm run prettier -- --list-different",
-    "validate": "npm run check-format && npm run lint && npm run build"
+    "validate": "npm run check-types && npm run check-format && npm run lint && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -20,9 +21,11 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.1",
     "jest": "^25.4.0",
-    "prettier": "^2.0.4"
+    "prettier": "^2.0.4",
+    "typescript": "^3.8.3"
   }
 }
